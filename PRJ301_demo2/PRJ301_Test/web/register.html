@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Chia Sẻ Trang Web</title>
+    <style>
+        /* THEME VARIABLES - Dễ dàng tùy chỉnh theme */
+        :root {
+            --background-color: #f5f5f5;
+            --container-border: #000;
+            --navbar-bg: #fff;
+            --text-color: #333;
+            --card-bg: #fff;
+            --header-gradient-start: #8B5E3C;
+            --header-gradient-end: #5A3A21;
+            --header-text: #fff;
+            --input-border: #ddd;
+            --button-hover: #5A3A21;
+            --error-color: #e74c3c;
+            --success-color: #2ecc71;
+        }
+        
+        [data-theme="dark"] {
+            --background-color: #222;
+            --container-border: #444;
+            --navbar-bg: #333;
+            --text-color: #eee;
+            --card-bg: #444;
+            --header-gradient-start: #5A3A21;
+            --header-gradient-end: #3A2010;
+            --header-text: #fff;
+            --input-border: #555;
+            --button-hover: #3A2010;
+            --error-color: #e74c3c;
+            --success-color: #2ecc71;
+        }
+        
+        /* BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            border: 1px solid var(--container-border);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* HEADER STYLES */
+        header {
+            background-color: var(--navbar-bg);
+            border-bottom: 1px solid var(--container-border);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        
+        /* BANNER STYLES */
+        .banner {
+            background: linear-gradient(to bottom, var(--header-gradient-start), var(--header-gradient-end));
+            color: var(--header-text);
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .banner h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        
+        /* REGISTER FORM STYLES */
+        .register-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .register-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border: 1px solid var(--container-border);
+            background-color: var(--card-bg);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .register-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .register-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--header-gradient-start);
+        }
+        
+        .input-hint {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 5px;
+        }
+        
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .terms-checkbox input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .register-button {
+            background: var(--header-gradient-start);
+            color: var(--header-text);
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .register-button:hover {
+            background: var(--button-hover);
+        }
+        
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .form-footer a {
+            color: var(--header-gradient-start);
+            text-decoration: none;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* FOOTER STYLES */
+        .footer {
+            background-color: var(--header-gradient-start);
+            color: var(--header-text);
+            padding: 15px;
+            text-align: center;
+        }
+        
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 2rem;
+            }
+            
+            .register-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <nav class="navbar">
+                <div class="nav-item logo">
+                    <a href="home_page.html">LOGO</a>
+                </div>
+                
+            </nav>
+            
+            <div class="banner">
+                <h1>ĐĂNG KÝ</h1>
+            </div>
+        </header>
+        
+        <!-- Register Section -->
+        <section class="register-section">
+            <div class="register-container">
+                <div class="register-header">
+                    <h2>Tạo tài khoản mới</h2>
+                </div>
+                
+                <!-- Form đăng ký - sẽ được xử lý bởi Servlet -->
+                <form class="register-form" action="RegisterServlet" method="post">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Nhập địa chỉ email" required>
+                        <div class="input-hint">Email sẽ được sử dụng làm tên đăng nhập của bạn</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" id="password" name="password" placeholder="Tạo mật khẩu" required>
+                        <div class="input-hint">Mật khẩu phải có ít nhất 8 ký tự</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="confirm-password">Xác nhận mật khẩu</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Tôi đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách bảo mật</a> của Chia Sẻ Trang Web</label>
+                    </div>
+                    
+                    <button type="submit" class="register-button">Đăng ký</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Chia Sẻ Trang Web. Tất cả quyền được bảo lưu.</p>
+        </footer>
+    </div>
+</body>
+</html>
